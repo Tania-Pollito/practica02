@@ -18,7 +18,8 @@ def registrar_transaccion(producto, precio_convertido, moneda, ruta_log):
           #Obtener la fecha actual con forato año, mes dia: hora, minuto y segundo"""
           fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
           #Escribir una línea nueva en el archivo de registro
-          archivo.write(f"{fecha} | {producto}: {precio_convertido:.2f} {moneda}\n")
+          archivo.write(f"{fecha} | {producto}: {round(precio_convertido, 2)} {moneda}\n")
+
 def actualizar_tasas(ruta):
     with open(ruta, "r+") as archivo:
         tasas = json.load(archivo)
